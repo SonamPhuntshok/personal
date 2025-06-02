@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Task Manager</title>
+  <link rel="stylesheet" href="/css/adminDashoboard.css">
+  <script defer src="/js/adminScript.js"></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">Admin</div>
+    <ul class="nav-links">
+      <li><a href="/admin/dashboard">Dashboard</a></li>
+      <li><a href="/view-Tasks">View Task</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </nav>
+  <style>
+  .task-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .task-table thead tr {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+  }
+
+  .task-table th, 
+  .task-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .task-table tbody tr:hover {
+    background-color: #f1faff;
+  }
+
+  /* Button Styles */
+  .edit-btn, .delete-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    color: white;
+    margin-right: 5px;
+  }
+
+  .edit-btn {
+    background-color: #28a745; /* green */
+  }
+
+  .edit-btn:hover {
+    background-color: #218838;
+  }
+
+  .delete-btn {
+    background-color: #dc3545; /* red */
+  }
+
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+</style>
+
+<table class="task-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Due Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% tasks.forEach(task => { %>
+    <tr id="task-<%= task.id %>">
+      <td><%= task.title %></td>
+      <td><%= task.description %></td>
+      <td><%= task.due_date.toISOString().split("T")[0] %></td>
+      <td class="task-actions">
+        <form action="/admin/edit-task/<%= task.id %>" method="GET" style="display:inline;">
+          <button type="submit" class="edit-btn">Edit</button>
+        </form>
+        <!-- <button class="delete-btn" onclick="deleteTask(<%= task.id %>)">Delete</button> -->
+        <button class="delete-btn" onclick="deleteTask('<%= task.id %>')">Delete</button>
+      </td>
+    </tr>
+  <% }); %>
+</tbody>
+
+
+        </table>
+      </section>
+
+
+    </main>
+
+  
+
+</body>
+
+<script>
+  async function deleteTask(taskId) {
+    if (!confirm('Are you sure you want to delete this task?')) return;
+
+    try {
+      const response = await fetch(`/admin/delete-task/${taskId}`, {
+        method: 'DELETE',  // Use DELETE HTTP method (adjust server-side accordingly)
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        // Remove the row from the table
+        const row = document.getElementById(`task-${taskId}`);
+        if (row) {
+          row.remove();
+        }
+      } else {
+        const error = await response.text();
+        alert('Failed to delete task: ' + error);
+      }
+    } catch (err) {
+      alert('Error deleting task: ' + err.message);
+    }
+  }
+</script>
+</html>
+
+<!-- view task -->

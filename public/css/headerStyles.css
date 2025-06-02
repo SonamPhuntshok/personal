@@ -1,0 +1,98 @@
+
+/* General Reset */
+body, h1, p, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    
+}
+
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:  #1e1e2f;
+    padding: 15px 6px;
+    color: white;
+}
+
+
+.navbar .lo a {
+    text-decoration: none;
+    color: rgb(134, 248, 81);
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+ 
+}
+
+
+.nav-links a:hover {
+    color: #f4a261;
+}
+
+
+/* Footer Styling */
+.footer {
+    background: #1e1e2f;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.animated-header h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    background: linear-gradient(270deg, #00ff99, #00cc66, #00ffcc, #00ff99);
+    background-size: 800% 800%;
+    
+
+   
+}
+
+
+
+.typing-header {
+    font-size: 1.5em;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #00bfff;
+    width: 0;
+    animation: typing 5s steps(25, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #0a1c21; }
+}
