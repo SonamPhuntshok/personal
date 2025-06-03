@@ -1,24 +1,41 @@
-
-/* General Reset */
-body, h1, p, ul {
+/* ===== Reset & Base ===== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    
 }
 
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
 
-/* Navbar Styling */
+/* ===== Layout Structure ===== */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* ===== Navbar ===== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background:  #1e1e2f;
-    padding: 15px 6px;
+    background: #1e1e2f;
+    padding: 15px 20px;
     color: white;
+    flex-wrap: wrap;
 }
-
 
 .navbar .lo a {
     text-decoration: none;
@@ -27,59 +44,44 @@ body, h1, p, ul {
     font-weight: bold;
 }
 
-
 .nav-links {
     list-style: none;
     display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-
-.nav-links a {
+.nav-links li a {
     text-decoration: none;
     color: white;
-    font-size: 0.9em;
-    transition: color 0.3s ease;
- 
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-
-.nav-links a:hover {
+.nav-links li a:hover {
     color: #f4a261;
 }
 
-
-/* Footer Styling */
+/* ===== Footer ===== */
 .footer {
-    background: #1e1e2f;
+    background-color: #1e1e2f;
     color: white;
     text-align: center;
     padding: 15px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    margin-top: auto;
 }
 
-
+/* ===== Animated Header ===== */
 .animated-header h1 {
     font-size: 1.8em;
     font-weight: bold;
     background: linear-gradient(270deg, #00ff99, #00cc66, #00ffcc, #00ff99);
     background-size: 800% 800%;
-    
-
-   
 }
-
-
 
 .typing-header {
     font-size: 1.5em;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Georgia, Times, serif;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid #00bfff;
@@ -95,4 +97,82 @@ body, h1, p, ul {
 @keyframes blink-caret {
     0%, 100% { border-color: transparent; }
     50% { border-color: #0a1c21; }
+}
+
+/* ===== Buttons ===== */
+.auth-buttons {
+    margin-top: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #0056b3, #003f7f);
+    box-shadow: 0 6px 20px rgba(0, 86, 179, 0.5);
+    transform: scale(1.05);
+}
+
+/* ===== Responsive Design ===== */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .auth-buttons {
+        margin-top: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .typing-header {
+        font-size: 1.2em;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+        padding: 5px 0;
+    }
+
+    .btn {
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+
+    .animated-header h1 {
+        font-size: 1.3em;
+    }
 }
