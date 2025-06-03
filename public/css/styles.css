@@ -1,212 +1,52 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* Global styles */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}/* ===== Reset and Base Styles ===== */
+/* Base Reset */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html, body {
     height: 100%;
+    overflow-x: hidden; /* Prevent side scroll */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     color: #333;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
-/* ===== Layout Containers ===== */
+/* Structure */
 main {
     flex: 1;
+    width: 100%;
     padding: 20px;
-}
-
-header,
-.footer {
-    background-color: #1e1e2f;
-    color: white;
     text-align: center;
-    padding: 15px 20px;
-}
-
-/* ===== Navbar ===== */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 15px 20px;
-    background-color: #1e1e2f;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: #00bfff;
-}
-
-/* ===== Buttons ===== */
-.auth-buttons {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.btn {
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    background: linear-gradient(to right, #007bff, #0056b3);
-    text-decoration: none;
-    border: none;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: linear-gradient(to right, #0056b3, #003f7f);
-    box-shadow: 0 6px 20px rgba(0, 86, 179, 0.5);
-    transform: scale(1.05);
-}
-
-/* ===== Footer ===== */
-.footer {
-    margin-top: auto;
-    padding: 15px 0;
-    font-size: 14px;
-}
-
-/* ===== Responsive Design ===== */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .nav-links li a {
-        display: block;
-        width: 100%;
-        padding: 10px 0;
-    }
-
-    .auth-buttons {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 30px;
-    }
-
-    .btn {
-        width: 90%;
-        margin: 10px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .btn {
-        font-size: 15px;
-        padding: 10px 20px;
-    }
-
-    .nav-links li a {
-        font-size: 16px;
-    }
-}
-
-
-main{
-    flex: 1;
 }
 
 /* Header */
 header {
     background-color: #1e1e2f;
     color: white;
-    padding: 0px;
+    padding: 10px 0;
 }
 
 /* Footer */
 .footer {
     background-color: #1e1e2f;
     color: white;
-    padding: 15px 0;
     text-align: center;
+    padding: 15px 0;
+    width: 100%;
 }
 
-/* Buttons */
-.auth-buttons {
-    margin-top: 40px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    margin: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    background: linear-gradient(to right, #007bff, #0056b3);
-    text-decoration: none;
-    border: none;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: linear-gradient(to right, #0056b3, #003f7f);
-    box-shadow: 0 6px 20px rgba(0, 86, 179, 0.5);
-    transform: scale(1.05);
-}
-
-/* Navbar Links (if needed) */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
     background-color: #1e1e2f;
+    padding: 10px 20px;
+    flex-wrap: wrap;
 }
 
 .nav-links {
@@ -228,15 +68,38 @@ header {
     color: #00bfff;
 }
 
-/* Optional: make sure buttons and layout are responsive */
-/* Responsive Design for Mobile and Tablets */
-@media (max-width: 768px) {
-    header, .footer, .navbar {
-        text-align: center;
-        flex-direction: column;
-        padding: 10px;
-    }
+/* Buttons */
+.auth-buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #0056b3, #003f7f);
+    box-shadow: 0 6px 20px rgba(0, 86, 179, 0.5);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
@@ -244,10 +107,8 @@ header {
 
     .nav-links {
         flex-direction: column;
-        align-items: flex-start;
         width: 100%;
         gap: 10px;
-        padding-left: 0;
     }
 
     .nav-links li {
@@ -261,20 +122,16 @@ header {
     }
 
     .auth-buttons {
-        margin-top: 30px;
-        display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     .btn {
         width: 90%;
-        font-size: 16px;
         margin: 10px 0;
     }
 }
 
-/* Even smaller devices (phones under 480px) */
 @media (max-width: 480px) {
     .btn {
         font-size: 15px;
