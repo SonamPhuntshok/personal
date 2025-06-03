@@ -81,16 +81,59 @@ header {
 }
 
 /* Optional: make sure buttons and layout are responsive */
-@media (max-width: 600px) {
-    .btn {
-        width: 80%;
-        font-size: 18px;
+/* Responsive Design for Mobile and Tablets */
+@media (max-width: 768px) {
+    header, .footer, .navbar {
+        text-align: center;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .nav-links {
         flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
         gap: 10px;
+        padding-left: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .auth-buttons {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 90%;
+        font-size: 16px;
+        margin: 10px 0;
     }
 }
 
+/* Even smaller devices (phones under 480px) */
+@media (max-width: 480px) {
+    .btn {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
 
+    .nav-links li a {
+        font-size: 16px;
+    }
+}
