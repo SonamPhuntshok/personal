@@ -17,59 +17,97 @@
       <li><a href="/">Logout</a></li>
     </ul>
   </nav>
-  <style>
-    body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+ <style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-main {
-  flex: 1;
-}
+  nav.navbar {
+    background-color: #343a40;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-footer {
-  margin-top: auto;
-}
+  .nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
-    
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    color: #ffc107;
+  }
+
+  main {
+    flex: 1;
+    padding: 2rem;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #007bff;
+  }
+
   .task-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  .task-table thead tr {
+  .task-table thead {
     background-color: #007bff;
-    color: rgb(22, 2, 2);
-    text-align: left;
+    color: #fff;
   }
 
   .task-table th, 
   .task-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #1b1212;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
   }
 
   .task-table tbody tr:hover {
-    background-color: #f1faff;
+    background-color: #e9f5ff;
   }
 
-  /* Button Styles */
-  .edit-btn, .delete-btn {
-    padding: 6px 12px;
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 14px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 5px;
     font-size: 0.9em;
+    cursor: pointer;
+    color: #fff;
     transition: background-color 0.3s ease;
-    color: white;
-    margin-right: 5px;
   }
 
   .edit-btn {
-    background-color: #28a745; /* green */
+    background-color: #28a745;
   }
 
   .edit-btn:hover {
@@ -77,13 +115,22 @@ footer {
   }
 
   .delete-btn {
-    background-color: #dc3545; /* red */
+    background-color: #dc3545;
   }
 
   .delete-btn:hover {
     background-color: #c82333;
   }
+
+  footer {
+    background-color: #262b30;
+    color: #fff;
+    padding: 0.9rem;
+    text-align: center;
+    margin-top: auto;
+  }
 </style>
+
 
 <h2>Your Tasks</h2>
 <table class="task-table">
@@ -146,130 +193,3 @@ footer {
 
 
 </html> 
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Smart Task Manager - User</title>
-  <link rel="stylesheet" href="/css/adminDashoboard.css" />
-</head>
-
-<body>
-  <nav class="navbar">
-    <div class="nav-brand">User</div>
-    <ul class="nav-links">
-      <li><a href="/home">View Tasks</a></li>
-      <li><a href="/logout">Logout</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <section class="container">
-      <h2>Your Tasks</h2>
-
-      <table class="task-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Due Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% if (tasks && tasks.length > 0) { %>
-            <% tasks.forEach(task => { %>
-              <tr>
-                <td><%= task.title %></td>
-                <td><%= task.description %></td>
-                <td><%= task.due_date.toISOString().split("T")[0] %></td>
-              </tr>
-            <% }); %>
-          <% } else { %>
-            <tr>
-              <td colspan="3">No tasks available</td>
-            </tr>
-          <% } %>
-        </tbody>
-      </table>
-    </section>
-  </main>
-  
-
-  <%- include('partials/footer') %>
-</body>
-
-<style>
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-
-  main {
-    flex: 1;
-    padding: 20px;
-  }
-
-  footer {
-    margin-top: auto;
-  }
-
-  .task-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .task-table thead tr {
-    background-color: #007bff;
-    color: white;
-    text-align: left;
-  }
-
-  .task-table th,
-  .task-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .task-table tbody tr:hover {
-    background-color: #f1faff;
-  }
-
-  .navbar {
-    background-color: #007bff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav-brand {
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .nav-links a:hover {
-    text-decoration: underline;
-  }
-</style>
-
-</html> -->

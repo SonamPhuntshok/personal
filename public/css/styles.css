@@ -7,7 +7,7 @@
 
 html, body {
     height: 100%;
-    overflow-x: hidden; /* Prevent side scroll */
+    overflow-x: hidden; /* Prevent horizontal scroll */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -28,6 +28,7 @@ header {
     background-color: #1e1e2f;
     color: white;
     padding: 10px 0;
+    text-align: center;
 }
 
 /* Footer */
@@ -49,12 +50,12 @@ header {
     flex-wrap: wrap;
 }
 
+/* Align nav-links to right */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
-    padding: 0;
-    margin: 0;
+    margin-left: auto; /* Push to right */
 }
 
 .nav-links li a {
@@ -72,7 +73,7 @@ header {
 .auth-buttons {
     margin-top: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Align buttons to right */
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -102,33 +103,34 @@ header {
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     .nav-links {
         flex-direction: column;
+        align-items: flex-end;
         width: 100%;
+        margin-left: 0;
         gap: 10px;
     }
 
-    .nav-links li {
-        width: 100%;
-    }
-
     .nav-links li a {
-        display: block;
-        padding: 10px;
         width: 100%;
+        padding: 10px 20px;
+        display: block;
     }
 
     .auth-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
+        width: 100%;
+        padding: 0 20px;
     }
 
     .btn {
-        width: 90%;
+        width: 100%;
         margin: 10px 0;
+        text-align: right;
     }
 }
 

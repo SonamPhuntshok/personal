@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title><%= title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= title %>
+  </title>
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/headerStyles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -11,14 +14,15 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       background-color: #fff;
     }
 
     .hero-section {
       display: flex;
       flex-direction: column;
-      min-height: calc(100vh - 140px); /* header + footer space */
+      min-height: calc(100vh - 140px);
+      /* header + footer space */
     }
 
     .hero-image {
@@ -34,7 +38,7 @@
       bottom: 0;
       width: 100%;
       height: 80px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #f0f8ff 100%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #f0f8ff 100%);
     }
 
     .quote-section {
@@ -53,7 +57,7 @@
       background-color: rgba(255, 255, 255, 0.6);
       padding: 2rem;
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       font-style: italic;
       color: #003344;
       font-size: 1.8rem;
@@ -76,7 +80,7 @@
 
     .quote-box::after {
       content: "”";
-      font-size: 5rem;
+      font-size: 3rem;
       position: absolute;
       bottom: -30px;
       right: 30px;
@@ -84,37 +88,78 @@
       opacity: 0.3;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    /* Tablets and below */
+    @media (max-width: 768px) {
+      .login-container {
+        padding: 1.5rem;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      .login-form {
+        padding: 1.5rem;
+        max-width: 90%;
+      }
+
+      .login-form input {
+        font-size: 1rem;
+      }
+
+      .login-form button {
+        font-size: 1rem;
+      }
+
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        justify-content: flex-end;
+        width: auto;
+        padding: 0rem 13rem;
+        gap: 10px;
+      }
+
+      .nav-links li a {
+        font-size: 0.95rem;
       }
     }
 
-    @media (max-width: 768px) {
-      .quote-box {
-        font-size: 1.3rem;
-        padding: 1.5rem;
+    @media (max-width: 480px) {
+      .login-form {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        gap: 6px;
+      }
+
+      .nav-links li a {
+        font-size: 0.85rem;
       }
     }
   </style>
+
 </head>
 
 <body>
   <%- include('partials/header') %>
 
-  <section class="hero-section">
-    <div class="hero-image"></div>
+    <section clas="hero-section">
+      <div class="hero-image"></div>
+      <div class="quote-section">
+        <div class="quote-box">
+          "The key is not to prioritize what's on your schedule, but to schedule your priorities."
+        </div>
+      </div>
 
-   
-  </section>
 
-  <%- include('partials/footer') %>
+    </section>
 
-  <script src="/js/script.js"></script>
+    <%- include('partials/footer') %>
+
+      <script src="/js/script.js"></script>
 </body>
+
 </html>

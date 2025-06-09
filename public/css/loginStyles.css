@@ -5,61 +5,85 @@
     align-items: center;
     justify-content: center;
     min-height: 80vh;
-    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
 }
-
 
 /* Form Styling */
 .login-form {
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    animation: fadeIn 0.8s ease;
 }
-
 
 /* Input Fields */
 .login-form input {
-    padding: 10px;
+    padding: 12px;
     font-size: 1em;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
     outline: none;
-    transition: border 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
 }
-
 
 .login-form input:focus {
-    border-color: #f4a261;
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
+/* Labels (optional) */
+.login-form label {
+    text-align: left;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #444;
+}
 
 /* Login Button */
 .login-form button {
-    padding: 10px;
+    padding: 12px;
     font-size: 1.1em;
-    background: #f4a261;
+    background: linear-gradient(to right, #007bff, #0056b3);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-
-@keyframes blinkLight {
-    0% { background-color: #47ea31; }
-    25% { background-color: #cb3333; }
-    50% { background-color: #5232df; }
-    75% { background-color: #cdf363; }
-    100% { background-color: #ecd3e5; }
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .login-form button:hover {
-    animation: blinkLight 1s infinite;
-    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Optional: Smooth fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-form {
+        padding: 25px 20px;
+    }
+
+    .login-form input {
+        font-size: 0.95em;
+    }
+
+    .login-form button {
+        font-size: 1em;
+    }
 }

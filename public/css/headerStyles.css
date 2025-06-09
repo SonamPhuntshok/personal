@@ -7,7 +7,7 @@
 
 html, body {
     height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     background-color: #f4f4f4;
     color: #333;
     display: flex;
@@ -130,49 +130,56 @@ main {
 
 /* Tablets and below */
 @media (max-width: 768px) {
+    .login-container {
+        padding: 1.5rem;
+    }
+
+    .login-form {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .login-form input {
+        font-size: 1rem;
+    }
+
+    .login-form button {
+        font-size: 1rem;
+    }
+
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .nav-links {
-        flex-direction: column;
-        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: auto;
         gap: 10px;
-        padding-top: 10px;
-    }
-
-    .auth-buttons {
-        margin-top: 20px;
-    }
-
-    .btn {
-        width: 100%;
-        font-size: 16px;
-    }
-
-    .typing-header {
-        font-size: 1.2em;
-    }
-}
-
-/* Phones */
-@media (max-width: 480px) {
-    .navbar {
-        padding: 10px;
     }
 
     .nav-links li a {
-        font-size: 16px;
-        padding: 5px 0;
-    }
-
-    .btn {
-        font-size: 15px;
-        padding: 10px 15px;
-    }
-
-    .animated-header h1 {
-        font-size: 1.3em;
+        font-size: 0.95rem;
     }
 }
+
+@media (max-width: 480px) {
+    .login-form {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 6px;
+    
+    }
+
+    .nav-links li a {
+        font-size: 0.85rem;
+    }
+}
+
+
+
+
